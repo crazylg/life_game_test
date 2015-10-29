@@ -23,7 +23,7 @@ function init_map(){
         for (var j = 0; j < column; j++)
             map[i][j] = 0;
     }
-};
+}
 
 var flag = false;
 function get_variables() {
@@ -41,7 +41,7 @@ function get_variables() {
     column = row;
     init_map();
     draw_map_original();}
-};
+}
 
 //start button-----------------------------------------------------------------------------------------------------------------------------------------
 function start() {
@@ -55,7 +55,7 @@ function start() {
     randomData(map, start_percent_of_cell);
     draw_map_calculated(map);
     setInterval("refresh()", refresh_time);
-};
+}
 
 /*click the cell*/
 function set_wall(x, y) {
@@ -67,7 +67,7 @@ function set_wall(x, y) {
         map[x][y] = -1;
         return true;
     }
-};
+}
 function bind_click() {
     var cmap = $('#map');
     var context = cmap[0].getContext("2d");
@@ -88,14 +88,14 @@ function bind_click() {
             context.fillRect(i * cell_height + 1, j * cell_width + 1, cell_height - 1, cell_width - 1);
         }
     });
-};
+}
 
 
 //refresh------------------------------------------------------------------------------------------------------------------------------------------------------------
 function refresh() {
     updataMatrix(map);
     draw_map_calculated(map);
-};
+}
 
 //calculating function------------------------------------------------------------------------------------------------------------------------------------------------
 function randomData(map, pblt) {
@@ -108,7 +108,7 @@ function randomData(map, pblt) {
             }
         }
     }
-};
+}
 
 function getRoot(m, x, y) {
     if ((x <= -1) || (x >= column)) {
@@ -133,7 +133,7 @@ function countBeside(m, x, y) {
     }
     result = result - m[x][y] - m[x][y];
     return result;
-};
+}
 
 function updataMatrix(x) {
     y = new Array();
@@ -162,7 +162,7 @@ function updataMatrix(x) {
             x[i][j] = y[i][j];
         }
     }
-};
+}
 
 //draw function-------------------------------------------------------------------------------------------------------------------------------------------------------
 function draw_map_original() {
@@ -181,7 +181,7 @@ function draw_map_original() {
         context.lineTo(column * cell_width, j * cell_height);
         context.stroke();
     }
-};
+}
 
 //draw map calculated
 function draw_map_calculated(map) {
@@ -201,6 +201,6 @@ function draw_map_calculated(map) {
                 context.fillStyle = "red";//silver
                 context.fillRect(i * cell_height + 1, j * cell_width + 1, cell_height - 1, cell_width - 1);
             }
-        };
-    };
-};
+        }
+    }
+}
